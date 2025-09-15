@@ -1,69 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SystemCompare — Prototype</title>
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Chart.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <title>SystemCompare ATA Prototype</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>SystemCompare — Product System Design Prototype</h1>
-    <p class="lead">Compare two competitive systems (example: Airbus A320 vs Boeing 737) — architecture, attributes and failure scenarios.</p>
-  </header>
+  <h1>Aircraft System Comparison (ATA)</h1>
+  <label for="product1">Select Aircraft 1:</label>
+  <select id="product1"></select>
 
-  <main>
-    <section class="controls">
-      <label for="productA">Product A:</label>
-      <select id="productA"></select>
+  <label for="product2">Select Aircraft 2:</label>
+  <select id="product2"></select>
 
-      <label for="productB">Product B:</label>
-      <select id="productB"></select>
+  <button id="compareBtn">Compare</button>
 
-      <button id="compareBtn">Compare</button>
-    </section>
+  <div id="compareResult"></div>
 
-    <section class="overview">
-      <div class="card" id="cardA">
-        <h2 id="titleA"></h2>
-        <div id="diagramA" class="diagram"></div>
-      </div>
-      <div class="card" id="cardB">
-        <h2 id="titleB"></h2>
-        <div id="diagramB" class="diagram"></div>
-      </div>
-    </section>
+  <label for="ataSelect">Select System (ATA):</label>
+  <select id="ataSelect">
+    <option value="">-- Select System --</option>
+    <option value="21">ATA 21 – Air Conditioning</option>
+    <option value="27">ATA 27 – Flight Controls</option>
+    <option value="28">ATA 28 – Fuel</option>
+    <option value="32">ATA 32 – Landing Gear</option>
+    <option value="34">ATA 34 – Navigation</option>
+    <option value="71">ATA 71 – Powerplant</option>
+  </select>
 
-    <section class="charts">
-      <div class="chart-card">
-        <h3>Attribute Radar</h3>
-        <canvas id="radarChart"></canvas>
-      </div>
-      <div class="table-card">
-        <h3>Side-by-side Specs</h3>
-        <div id="specsTable"></div>
-      </div>
-    </section>
-
-    <section class="scenario">
-      <h3>Failure Scenario Simulator</h3>
-      <label for="scenarioSelect">Pick a failure scenario:</label>
-      <select id="scenarioSelect">
-        <option value="sensor">Single sensor failure</option>
-        <option value="power">Primary power bus loss</option>
-        <option value="brake">Brake subsystem degraded</option>
-      </select>
-      <button id="runScenario">Run Scenario</button>
-
-      <div id="scenarioOutput" class="scenario-output"></div>
-    </section>
-
-    <footer>
-      <p>Prototype — data is illustrative. For production, replace with validated product datasets and review IP/licensing.</p>
-    </footer>
-  </main>
+  <div id="systemCompare"></div>
 
   <script src="app.js"></script>
 </body>
